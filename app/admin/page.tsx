@@ -4,6 +4,8 @@ import { supabase } from "@/lib/supabase";
 import AdminLogoutButton from "@/components/AdminLogoutButton";
 import ProductStockManager from "@/components/ProductStockManager";
 
+export const dynamic = "force-dynamic";
+
 export default async function AdminPage() {
   const cookieStore = await cookies();
   const isAdmin = cookieStore.get("admin_auth")?.value === "true";
