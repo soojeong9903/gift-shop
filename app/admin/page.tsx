@@ -2,6 +2,7 @@ import { cookies } from "next/headers";
 import { redirect } from "next/navigation";
 import { supabase } from "@/lib/supabase";
 import AdminLogoutButton from "@/components/AdminLogoutButton";
+import ProductStockManager from "@/components/ProductStockManager";
 
 export default async function AdminPage() {
   const cookieStore = await cookies();
@@ -42,6 +43,21 @@ export default async function AdminPage() {
     );
   }
 
+  const { data: products, error: productError } = await supabase
+    .from("products")
+    .select("id, name, stock, cost")
+    .order("created_at", { ascending: true });
+
+  if (productError) {
+    return (
+      <main className="min-h-screen p-8">
+        <p className="text-red-500">
+          상품을 불러오지 못했습니다: {productError.message}
+        </p>
+      </main>
+    );
+  }
+
   return (
     <main className="min-h-screen bg-pink-50 p-8">
       <div className="mb-6 flex items-center justify-between">
@@ -49,6 +65,7 @@ export default async function AdminPage() {
 
         <AdminLogoutButton />
       </div>
+      <ProductStockManager products={products ?? []} />
       <div className="grid gap-4">
         {orders?.map((order) => (
           <div
