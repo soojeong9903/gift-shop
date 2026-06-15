@@ -16,7 +16,7 @@ type CartItem = Product & {
   quantity: number;
 };
 
-const MAX_POINTS = 6;
+const MAX_POINTS = 4;
 
 export default function GiftShop({ products }: { products: Product[] }) {
   const [cart, setCart] = useState<CartItem[]>([]);
@@ -130,7 +130,7 @@ export default function GiftShop({ products }: { products: Product[] }) {
           </a>
         </div>
         <p className="mb-8 text-gray-600">
-          원하는 선물을 골라주세요. 한 사람당 최대 6포인트까지 선택 가능합니다.
+          원하는 선물을 골라주세요. 한 사람당 최대 4포인트까지 선택 가능합니다.
         </p>
 
         <div className="mb-6 rounded-2xl bg-white p-4 shadow-sm border sm:p-5 overflow-hidden">

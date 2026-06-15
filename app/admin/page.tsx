@@ -3,6 +3,7 @@ import { redirect } from "next/navigation";
 import { supabase } from "@/lib/supabase";
 import AdminLogoutButton from "@/components/AdminLogoutButton";
 import ProductStockManager from "@/components/ProductStockManager";
+import DeleteOrderButton from "@/components/DeleteOrderButton";
 
 export const dynamic = "force-dynamic";
 
@@ -75,12 +76,17 @@ export default async function AdminPage() {
             className="rounded-2xl border bg-white p-5 shadow-sm"
           >
             <div className="mb-3 flex items-center justify-between">
-              <h2 className="text-xl font-bold text-black">
-                {order.customer_name}
-              </h2>
-              <span className="text-sm text-gray-500">
-                {order.total_cost}pt
-              </span>
+              <div>
+                <h2 className="text-xl font-bold text-black">
+                  {order.customer_name}
+                </h2>
+
+                <span className="text-sm text-gray-500">
+                  {order.total_cost}pt
+                </span>
+              </div>
+
+              <DeleteOrderButton orderId={order.id} />
             </div>
 
             <p className="text-gray-700">
