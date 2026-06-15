@@ -115,7 +115,7 @@ export default function GiftShop({ products }: { products: Product[] }) {
   };
 
   return (
-    <main className="min-h-screen bg-pink-50 p-8">
+    <main className="min-h-screen bg-pink-50 px-4 py-8 sm:p-8">
       <div className="mx-auto max-w-7xl">
         <div className="mb-2 flex items-center justify-between">
           <h1 className="text-4xl font-bold text-black">
@@ -133,11 +133,9 @@ export default function GiftShop({ products }: { products: Product[] }) {
           원하는 선물을 골라주세요. 한 사람당 최대 6포인트까지 선택 가능합니다.
         </p>
 
-        <div className="mb-6 rounded-2xl bg-white p-5 shadow-sm border">
+        <div className="mb-6 rounded-2xl bg-white p-4 shadow-sm border sm:p-5 overflow-hidden">
           <h2 className="text-xl font-bold text-black mb-3">🛒 장바구니</h2>
-
           <p className="text-gray-600 mb-2">선택한 상품: {cart.length}개</p>
-
           {cart.length === 0 ? (
             <p className="text-gray-500">아직 선택한 선물이 없습니다.</p>
           ) : (
@@ -163,9 +161,7 @@ export default function GiftShop({ products }: { products: Product[] }) {
               ))}
             </ul>
           )}
-
           <hr className="my-3" />
-
           <p className="text-black">사용 포인트: {usedPoints}</p>
           <p className="font-semibold text-black">
             남은 포인트: {remainingPoints}
@@ -184,7 +180,7 @@ export default function GiftShop({ products }: { products: Product[] }) {
               className="w-full rounded-xl border px-4 py-3 text-black"
             />
 
-            <div className="grid gap-2 sm:grid-cols-[220px_1fr]">
+            <div className="grid grid-cols-1 gap-2 sm:grid-cols-[220px_1fr]">
               <select
                 value={contactType}
                 onChange={(e) => setContactType(e.target.value)}
