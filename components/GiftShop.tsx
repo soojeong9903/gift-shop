@@ -181,14 +181,14 @@ export default function GiftShop({ products }: { products: Product[] }) {
               value={customerName}
               onChange={(e) => setCustomerName(e.target.value)}
               placeholder="이름 *"
-              className="rounded-xl border px-4 py-3 text-black"
+              className="w-full rounded-xl border px-4 py-3 text-black"
             />
 
-            <div className="flex gap-2">
+            <div className="grid gap-2 sm:grid-cols-[220px_1fr]">
               <select
                 value={contactType}
                 onChange={(e) => setContactType(e.target.value)}
-                className="rounded-xl border px-3 py-3 text-black"
+                className="w-full rounded-xl border px-3 py-3 text-black"
               >
                 <option value="kakao">Kakaotalk ID</option>
                 <option value="instagram">Instagram ID</option>
@@ -196,12 +196,11 @@ export default function GiftShop({ products }: { products: Product[] }) {
                 <option value="discord">Discord ID</option>
                 <option value="other">Other</option>
               </select>
-
               <input
                 value={contactValue}
                 onChange={(e) => setContactValue(e.target.value)}
                 placeholder="연락처 입력 *"
-                className="flex-1 rounded-xl border px-4 py-3 text-black"
+                className="w-full min-w-0 rounded-xl border px-4 py-3 text-black"
               />
             </div>
 
@@ -209,7 +208,7 @@ export default function GiftShop({ products }: { products: Product[] }) {
               value={note}
               onChange={(e) => setNote(e.target.value)}
               placeholder="메모"
-              className="rounded-xl border px-4 py-3 text-black"
+              className="w-full rounded-xl border px-4 py-3 text-black"
             />
 
             <button
